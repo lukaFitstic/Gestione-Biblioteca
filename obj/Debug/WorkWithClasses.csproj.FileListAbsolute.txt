@@ -1,0 +1,7 @@
+C:\Users\lukap\OneDrive\Desktop\ITS\C#.Net\WorkWithClasses\WorkWithClasses\bin\Debug\WorkWithClasses.exe.config
+C:\Users\lukap\OneDrive\Desktop\ITS\C#.Net\WorkWithClasses\WorkWithClasses\bin\Debug\WorkWithClasses.exe
+C:\Users\lukap\OneDrive\Desktop\ITS\C#.Net\WorkWithClasses\WorkWithClasses\bin\Debug\WorkWithClasses.pdb
+C:\Users\lukap\OneDrive\Desktop\ITS\C#.Net\WorkWithClasses\WorkWithClasses\obj\Debug\WorkWithClasses.csproj.AssemblyReference.cache
+C:\Users\lukap\OneDrive\Desktop\ITS\C#.Net\WorkWithClasses\WorkWithClasses\obj\Debug\WorkWithClasses.csproj.CoreCompileInputs.cache
+C:\Users\lukap\OneDrive\Desktop\ITS\C#.Net\WorkWithClasses\WorkWithClasses\obj\Debug\WorkWithClasses.exe
+C:\Users\lukap\OneDrive\Desktop\ITS\C#.Net\WorkWithClasses\WorkWithClasses\obj\Debug\WorkWithClasses.pdb
