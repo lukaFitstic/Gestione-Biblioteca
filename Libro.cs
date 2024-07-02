@@ -8,16 +8,16 @@ namespace WorkWithClasses
 {
     public class Libro
     {
-        // definisco le variabili
-        public string ISBN { get; set; }
-        public string Titolo { get; set; }
-        public string Autore { get; set; }
-        public int AnnoDiPubblicazione { get; set; }
-        public bool Disponibile { get; set; } = true;
-        public int NumeroCopie { get; set; }
-        public int CopieBorrowed { get; set; }
+        // define the variables
+        public string ISBN { get; set; } //recognise code
+        public string Titolo { get; set; } //title
+        public string Autore { get; set; } //author
+        public int AnnoDiPubblicazione { get; set; } // published year
+        public bool Disponibile { get; set; } = true; // disponibility 
+        public int NumeroCopie { get; set; } // enable copy
+        public int CopieBorrowed { get; set; } // boorow copy
 
-        // metodo che permette la modifica/compilazione del libro
+        // method that permit the configuration of a book
         public void Edit()
         {
             Console.Write("Inserisci il Codice ISBN: ");
@@ -32,7 +32,7 @@ namespace WorkWithClasses
             NumeroCopie = Convert.ToInt32(Console.ReadLine());
             
         }
-        // metodo che stampa i dati del libro
+        // method that print the book data
         public void Print()
         {
             string disponibilita = Disponibile ? "Disponibile" : "NON Disponibile";
@@ -40,11 +40,11 @@ namespace WorkWithClasses
             Console.WriteLine($"the {Titolo} is a book wrote from {Autore} in the {AnnoDiPubblicazione} \nis actually {disponibilita} with {CopieBorrowed} borrowed and {NumeroCopie} enable");
         }
 
-        // metodo che imposta la disponibilità a false --> ossia non disponibile
+        // method that permit the book borrow, updating the "db" 
 
         public void BookBorrow()
         {
-            if (NumeroCopie > 1)
+            if (NumeroCopie > 0)
             {
                 CopieBorrowed++;
                 NumeroCopie--;
@@ -59,26 +59,8 @@ namespace WorkWithClasses
 
 
         }
-        /*
-        public void BookBorrow()
-        { 
-            if (CopieBorrowed < NumeroCopie)
-            {
-                CopieBorrowed++;
-                NumeroCopie--;
-
-                Console.WriteLine($"Una copia del libro '{Titolo}' è stata prestata.");
-            }
-            else
-            {
-                Disponibile = false;
-                Console.WriteLine($"Tutte le copie del libro '{Titolo}' sono attualmente in prestito.");
-            }
-
-            
-        }
-        */
-        // metodo che imposta la disponibilità a true --> ossia disponibile
+        
+        // method that permit the returnig of a book, updating the "db"
         public void GiveItBack()
         {
             
@@ -96,31 +78,6 @@ namespace WorkWithClasses
             Disponibile = true;
             //Console.WriteLine($"Il libro {Titolo} è stato restituito ed è ora Disponibile");
         }
-        /*public void NumeroCopieEnable()
-        {
-            if((NumeroCopie -= CopieBorrowed) > 0)
-            {
-                NumeroCopie -= CopieBorrowed;
-            }
-            else
-            {
-                CopieBorrowed -= NumeroCopie;
-            }
-            
-            Console.WriteLine($"{Titolo} ha disponibili {NumeroCopie} copie");
-        }*/
-        /*
-        public void NumeroCopieBorrowed()
-        {
-            if ((NumeroCopie += CopieBorrowed) > 0)
-            {
-                NumeroCopie -= CopieBorrowed;
-            }
-            else
-            {
-                CopieBorrowed -= NumeroCopie;
-            }
-            Console.WriteLine($"{Titolo} copie prestate: {CopieBorrowed}");
-        }*/
+        
     }
 }
