@@ -62,7 +62,7 @@ namespace WorkWithClasses
             while (!inputValido)
             {
                 string input = Console.ReadLine();
-                if (int.TryParse(input, out int anno ) && anno > 600)
+                if (int.TryParse(input, out int anno ) && anno > 1449)
                 {
                     AnnoDiPubblicazione = anno;
                     inputValido = true;
