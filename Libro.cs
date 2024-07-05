@@ -62,7 +62,7 @@ namespace WorkWithClasses
             while (!inputValido)
             {
                 string input = Console.ReadLine();
-                if (int.TryParse(input, out int anno ) && anno > 1449)
+                if (int.TryParse(input, out int anno ) && anno > 1449 && anno <= DateTime.Now.Year)
                 {
                     AnnoDiPubblicazione = anno;
                     inputValido = true;
