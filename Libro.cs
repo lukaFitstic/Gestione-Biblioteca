@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO.Pipes;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -11,9 +12,11 @@ namespace WorkWithClasses
     public class Libro
     {
         // define the variables
+        public int LibroId { get; set; }
         public string ISBN { get; set; } //recognise code
         public string Titolo { get; set; } //title
-        public string Autore { get; set; } //author
+        public Author Autore { get; set; } //author
+        public int AutoreId { get; set; }
         public int AnnoDiPubblicazione { get; set; } // publish year
         public bool Disponibile { get; set; } = true; // disponibility 
         public int NumeroCopie { get; set; } // enable copy
@@ -55,9 +58,25 @@ namespace WorkWithClasses
             }
 
             inputValido = false;
-
+            /*
             Console.Write("insert the Autore: ");
             Autore = Console.ReadLine();
+            */
+            Console.Write("Inserisci il Nome dell'Autore: ");
+            string nomeAutore = Console.ReadLine();
+            // Trova l'autore nel database o creane uno nuovo
+            using (var context = new LibraryContext())
+            {
+                var autore = context.Autori.FirstOrDefault(a => a.AuthorName == nomeAutore);
+                if (autore == null)
+                {
+                    autore = new Author { AuthorName = nomeAutore };
+                    context.Autori.Add(autore);
+                    context.SaveChanges();
+                }
+                AutoreId = autore.AuthorId;
+            }
+
             Console.Write("insert the publish year: ");
             while (!inputValido)
             {
@@ -88,7 +107,14 @@ namespace WorkWithClasses
                     Console.WriteLine("Input non valido. Inserisci un valore valido");
                     Console.Write("->");
                 }
-                
+
+                /*
+                // Aggiungi il libro al contesto e salva i cambiamenti
+                var context = LibraryContext();
+                context.Libri.Add(this);
+                context.SaveChanges();
+                Console.WriteLine("Libro salvato con successo.");
+                */
             }
             /*
                 private string PrimaLetteraMaiuscola(string input)
@@ -146,6 +172,18 @@ namespace WorkWithClasses
             Disponibile = true;
             //Console.WriteLine($"Il libro {Titolo} è stato restituito ed è ora Disponibile");
         }
+        /*
+         * public class BookConfig
+        {
+            public int BookId { get; set; }
+            public string Title { get; set; }
+            public string ISBN { get; set; }
+            public int AuthorId { get; set; }
+            public AuthorConfig Author { get; set; }
+        }
+        */
+
+        
         
     }
 }
